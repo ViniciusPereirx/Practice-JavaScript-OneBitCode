@@ -1,6 +1,6 @@
 const express = require("express");
-const res = require("express/lib/response");
-const checklistsRouter = require("./src/routes/checklist");
+const checklistsRouter = require("./src/routes/checklist"); //Trabalhando com rotas
+require("./config/database"); //Importando MongoDB
 
 const app = express();
 app.use(express.json());
