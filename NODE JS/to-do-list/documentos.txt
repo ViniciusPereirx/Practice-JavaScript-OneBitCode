@@ -1,6 +1,0 @@
-Manipulando dados:https://onebitcode.notion.site/Manipulando-dados-no-MongoDB-6e7ef8a0686142db952ce95844e9771e
-
-Relacionamento com documento embutido:https://docs.mongodb.com/manual/tutorial/model-embedded-one-to-many-relationships-between-documents
-Relacionamento com referência: https://docs.mongodb.com/manual/tutorial/model-referenced-one-to-many-relationships-between-documents
-Operadores: https://docs.mongodb.com/manual/reference/operator
-Guia do Mongoose: https://mongoosejs.com/docs/index.html
