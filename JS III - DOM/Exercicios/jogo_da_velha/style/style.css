@@ -10,7 +10,7 @@
 
 #gameBoard span {
   background-color: #918c8c;
-  cursor: pointer;
+
   display: grid;
   place-content: center;
   font-size: 5rem;
@@ -18,4 +18,12 @@
 
 #gameBoard span.win {
   background-color: rgb(20, 161, 27);
+}
+
+.cursorRegion {
+  cursor: pointer;
+}
+
+.disabledSpan {
+  pointer-events: disabled;
 }

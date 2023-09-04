@@ -21,8 +21,19 @@ function initializeGame() {
   boardRegions.forEach((element) => {
     element.classList.remove("win");
     element.innerText = "";
+    element.classList.add("cursorRegion");
     element.addEventListener("click", handleBoardClick);
   });
+}
+
+function handleWin(regions) {
+  regions.forEach((region) => {
+    document
+      .querySelector('[data-region="' + region + '"]')
+      .classList.add("win");
+  });
+  const playerName = document.getElementById(turnPlayer).value;
+  document.querySelector("h2").innerHTML = playerName + " venceu!";
 }
 
 function handleBoardClick(ev) {
@@ -44,15 +55,76 @@ function handleBoardClick(ev) {
 
   disableRegion(span);
 
-  const winRegions = getWinRegigions();
+  const winRegions = getWinRegions();
+  if (winRegions.length > 0) {
+    handleWin(winRegions);
+    for (let i = 0; i < boardRegions.length; i++) {
+      boardRegions[i].removeEventListener("click", handleBoardClick);
+    }
+  } else if (virtualBoard.flat().includes("")) {
+    turnPlayer = turnPlayer === "player1" ? "player2" : "player1";
+    updateTitle();
+  } else {
+    document.querySelector("h2").innerHTML = "Empate!";
+  }
 }
 
-function getWinRegigions() {
+function getWinRegions() {
   const winRegions = [];
+
+  if (
+    virtualBoard[0][0] &&
+    virtualBoard[0][0] === virtualBoard[0][1] &&
+    virtualBoard[0][0] === virtualBoard[0][2]
+  )
+    winRegions.push("0.0", "0.1", "0.2");
+  if (
+    virtualBoard[1][0] &&
+    virtualBoard[1][0] === virtualBoard[1][1] &&
+    virtualBoard[1][0] === virtualBoard[1][2]
+  )
+    winRegions.push("1.0", "1.1", "1.2");
+  if (
+    virtualBoard[2][0] &&
+    virtualBoard[2][0] === virtualBoard[2][1] &&
+    virtualBoard[2][0] === virtualBoard[2][2]
+  )
+    winRegions.push("2.0", "2.1", "2.2");
+  if (
+    virtualBoard[0][0] &&
+    virtualBoard[0][0] === virtualBoard[1][0] &&
+    virtualBoard[0][0] === virtualBoard[2][0]
+  )
+    winRegions.push("0.0", "1.0", "2.0");
+  if (
+    virtualBoard[0][1] &&
+    virtualBoard[0][1] === virtualBoard[1][1] &&
+    virtualBoard[0][1] === virtualBoard[2][1]
+  )
+    winRegions.push("0.1", "1.1", "2.1");
+  if (
+    virtualBoard[0][2] &&
+    virtualBoard[0][2] === virtualBoard[1][2] &&
+    virtualBoard[0][2] === virtualBoard[2][2]
+  )
+    winRegions.push("0.2", "1.2", "2.2");
+  if (
+    virtualBoard[0][0] &&
+    virtualBoard[0][0] === virtualBoard[1][1] &&
+    virtualBoard[0][0] === virtualBoard[2][2]
+  )
+    winRegions.push("0.0", "1.1", "2.2");
+  if (
+    virtualBoard[0][2] &&
+    virtualBoard[0][2] === virtualBoard[1][1] &&
+    virtualBoard[0][2] === virtualBoard[2][0]
+  )
+    winRegions.push("0.2", "1.1", "2.0");
+  return winRegions;
 }
 
 function disableRegion(element) {
-  element.style.cursor = "default";
+  element.classList.remove("cursorRegion");
   element.removeEventListener("click", handleBoardClick);
 }
 
