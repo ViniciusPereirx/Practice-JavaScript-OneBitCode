@@ -58,9 +58,9 @@ function handleBoardClick(ev) {
   const winRegions = getWinRegions();
   if (winRegions.length > 0) {
     handleWin(winRegions);
-    for (let i = 0; i < boardRegions.length; i++) {
-      boardRegions[i].removeEventListener("click", handleBoardClick);
-    }
+    boardRegions.forEach((region) => {
+      region.removeEventListener("click", handleBoardClick);
+    });
   } else if (virtualBoard.flat().includes("")) {
     turnPlayer = turnPlayer === "player1" ? "player2" : "player1";
     updateTitle();
