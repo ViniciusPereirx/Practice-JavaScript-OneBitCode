@@ -11,7 +11,7 @@ class Product {
   }
 
   calculateDiscount(discount) {
-    return this.price * ((100 - discount) / 100); //calculo procentagem
+    return this.price * ((100 - discount) / 100); //calculo porcentagem
   }
 }
 
