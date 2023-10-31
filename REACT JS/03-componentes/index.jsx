@@ -7,7 +7,7 @@ function Container() {
     <div className="container">
       <header>
         {" "}
-        <h1></h1>
+        <h1><Button/></h1>
       </header>
     </div>
   );
