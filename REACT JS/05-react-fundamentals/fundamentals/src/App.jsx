@@ -1,16 +1,14 @@
-function sum(a, b) {
-  return a + b;
-}
+import { StatusText } from "./components/StatusText";
+import { Subtitle } from "./components/Subtitle";
+import Title from "./components/Title";
+import styles from "./App.module.css";
 
 export default function App() {
-  const tech = "React";
-  const status = true;
-
   return (
-    <div>
-      <h1>{tech}</h1>
-      <h2>Soma = {sum(5, 5)}</h2>
-      <h2>Current status: {status ? "ON" : "OFF"}</h2>
+    <div className={styles.app}>
+      <Title />
+      <Subtitle />
+      <StatusText />
     </div>
   );
 }
