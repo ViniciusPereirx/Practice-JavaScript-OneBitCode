@@ -1,6 +1,6 @@
-import Product from "./Product";
+const Product = require("./Product");
 
-export default class Book extends Product {
+module.exports = class Book extends Product {
   constructor(
     title,
     synopsis,

@@ -1,9 +1,9 @@
-import Product from "./Product";
+const Product = require("./Product");
 
-export default class Poster extends Product {
+module.exports = class Poster extends Product {
   constructor(name, description, height, width, price, inStock = 0) {
     super(name, description, price, inStock);
     this.height = height;
     this.width = width;
   }
-}
+};
