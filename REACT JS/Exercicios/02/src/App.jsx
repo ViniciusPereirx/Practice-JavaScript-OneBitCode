@@ -2,8 +2,11 @@ import { Card } from "./components/Card";
 
 export default function App() {
   return (
-    <div className="app">
+    <>
+      <h1>Exercício 2</h1>
       <Card />
-    </div>
+      <Card />
+      <Card />
+    </>
   );
 }
