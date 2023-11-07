@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 
+import "./profile.css";
+
 export const Profile = ({
   profileImg,
   name,
@@ -14,40 +16,23 @@ export const Profile = ({
   return (
     <>
       <div className="wrapper">
-        <img src={profileImg} alt={name} />
-        <p>{name}</p>
-        <hr />
-        <p>{bio}</p>
-        <hr />
-        <p>{phone}</p>
-        <hr />
-        <p>{email}</p>
-        <hr />
-        <p>
+        <img className="avatar" src={profileImg} alt={name} />
+        <h2 className="name">{name}</h2>
+        <div>{bio}</div>
+        <div>{phone}</div>
+        <div>{email}</div>
+        <div className="links">
           {" "}
-          <a
-            href="https://github.com/ViniciusPereirx"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {githubUrl}
+          <a href={githubUrl} target="_blank" rel="noreferrer">
+            GitHub
           </a>
-        </p>
-        <p>
-          {" "}
-          <a
-            href="https://www.linkedin.com/in/viniciuspereiradev/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {linkedinUrl}
+          <a href={linkedinUrl} target="_blank" rel="noreferrer">
+            LinkedIn
           </a>
-        </p>
-        <p>
-          <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">
-            {twitterUrl}
+          <a href={twitterUrl} target="_blank" rel="noreferrer">
+            Twitter
           </a>
-        </p>
+        </div>
       </div>
     </>
   );

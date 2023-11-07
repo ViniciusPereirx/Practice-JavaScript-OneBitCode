@@ -4,17 +4,17 @@ import Avatar from "./assets/perfil.jpg";
 
 export default function App() {
   return (
-    <>
+    <div className="app">
       <Profile
         profileImg={Avatar}
-        name="Vinicius Pereira"
-        bio="Desenvolvedor FullStack"
+        name="Vinicius Pereira de Mesquita"
+        bio="Desenvolvedor JavaScript FullStack "
         email="viniciuspereiraa51@gmail.com"
         phone="(35) 997629493"
-        githubUrl="GitHub"
-        linkedinUrl="LinkedIn"
-        twitterUrl="Twitter"
+        githubUrl="https://github.com/ViniciusPereirx"
+        linkedinUrl="https://www.linkedin.com/in/viniciuspereiradev/"
+        twitterUrl="https://www.youtube.com/"
       />
-    </>
+    </div>
   );
 }
