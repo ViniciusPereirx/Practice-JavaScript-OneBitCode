@@ -7,7 +7,7 @@ export default function App() {
     <div className="app">
       <Profile
         profileImg={Avatar}
-        name="Vinicius Pereira de Mesquita"
+        name="Vinicius Pereira"
         bio="Desenvolvedor JavaScript FullStack "
         email="viniciuspereiraa51@gmail.com"
         phone="(35) 997629493"

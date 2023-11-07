@@ -1,0 +1,11 @@
+.wrapper-profile-section {
+  border-top: solid 1px rgb(66, 140, 209);
+  padding: 1rem 4rem;
+}
+
+.wrapper-link-button {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}

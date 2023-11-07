@@ -1,7 +1,11 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 
+import { LinksButton } from "./ProfileSection/LinkButton";
+import { Title } from "./Title";
+import { ProfileSection } from "./ProfileSection";
 import "./profile.css";
+import { Avatar } from "./Avatar";
 
 export const Profile = ({
   profileImg,
@@ -16,23 +20,17 @@ export const Profile = ({
   return (
     <>
       <div className="wrapper">
-        <img className="avatar" src={profileImg} alt={name} />
-        <h2 className="name">{name}</h2>
-        <div>{bio}</div>
-        <div>{phone}</div>
-        <div>{email}</div>
-        <div className="links">
+        <Avatar src={profileImg} alt={name}></Avatar>
+        <Title>{name}</Title>
+        <ProfileSection>{bio}</ProfileSection>
+        <ProfileSection>{email}</ProfileSection>
+        <ProfileSection>{phone}</ProfileSection>
+        <ProfileSection>
           {" "}
-          <a href={githubUrl} target="_blank" rel="noreferrer">
-            GitHub
-          </a>
-          <a href={linkedinUrl} target="_blank" rel="noreferrer">
-            LinkedIn
-          </a>
-          <a href={twitterUrl} target="_blank" rel="noreferrer">
-            Twitter
-          </a>
-        </div>
+          <LinksButton href={githubUrl}>GitHub</LinksButton>
+          <LinksButton href={linkedinUrl}>LinkedIn</LinksButton>
+          <LinksButton href={twitterUrl}>Twitter</LinksButton>
+        </ProfileSection>
       </div>
     </>
   );
