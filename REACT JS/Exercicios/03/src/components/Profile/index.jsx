@@ -17,15 +17,24 @@ export const Profile = ({
   linkedinUrl,
   twitterUrl,
 }) => {
+  const handleClick = () => {
+    alert(`Você está seguindo ${name}`);
+  };
+
   return (
     <>
       <div className="wrapper">
         <Avatar src={profileImg} alt={name}></Avatar>
-        <Title>{name}</Title>
+        <Title>
+          {name}{" "}
+          <button className="follow-button" onClick={handleClick}>
+            Follow
+          </button>
+        </Title>
         <ProfileSection>{bio}</ProfileSection>
         <ProfileSection>{email}</ProfileSection>
         <ProfileSection>{phone}</ProfileSection>
-        <ProfileSection>
+        <ProfileSection className="links">
           {" "}
           <LinksButton href={githubUrl}>GitHub</LinksButton>
           <LinksButton href={linkedinUrl}>LinkedIn</LinksButton>
