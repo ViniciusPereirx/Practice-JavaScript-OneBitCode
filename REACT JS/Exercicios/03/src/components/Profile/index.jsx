@@ -6,6 +6,7 @@ import { Title } from "./Title";
 import { ProfileSection } from "./ProfileSection";
 import "./profile.css";
 import { Avatar } from "./Avatar";
+import { useState } from "react";
 
 export const Profile = ({
   profileImg,
@@ -17,8 +18,11 @@ export const Profile = ({
   linkedinUrl,
   twitterUrl,
 }) => {
+  //[valor, funçãoModificadora]
+  const [followText, setFollowText] = useState("Seguir");
+
   const handleClick = () => {
-    alert(`Você está seguindo ${name}`);
+    setFollowText("Seguindo");
   };
 
   return (
@@ -28,7 +32,7 @@ export const Profile = ({
         <Title>
           {name}{" "}
           <button className="follow-button" onClick={handleClick}>
-            Follow
+            {followText}
           </button>
         </Title>
         <ProfileSection>{bio}</ProfileSection>
