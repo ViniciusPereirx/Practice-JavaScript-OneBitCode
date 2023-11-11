@@ -1,19 +1,23 @@
 import { useState } from "react";
+import { Input } from "./components/Input";
 
 function App() {
   const [password, setPassword] = useState("");
   const [copyText, setCopyText] = useState("Copiar!");
-  const [passwordSize, setPasswordSize] = useState(1);
+  const [customSize, setCustomSize] = useState(10);
+  const [showInput, setShowInput] = useState(false);
+
+  const passwordSize = showInput ? customSize : 10;
 
   const generate = () => {
     const characters =
       "'1234567890-=!@#$%¨&*()_+qwertyuiop[asdfghjklç~]zxcvbnm,.;/QWERTYUIOP{ASDFGHJKLÇ^}ZXCVBNM<>:?";
     let newPassword = "";
 
-    if (passwordSize === "") {
+    if (customSize === "") {
       alert("Informe um valor para gerar senhas");
     } else {
-      for (let i = 0; i < passwordSize; i++) {
+      for (let i = 0; i < customSize; i++) {
         const position = Math.floor(Math.random() * characters.length);
         newPassword += characters[position];
       }
@@ -32,15 +36,23 @@ function App() {
       <div className="app">
         <h1>Gerador de senhas</h1>
         <div>
-          <label htmlFor="passwordSize">Tamanho: </label>
+          <label htmlFor="showInput" id="showInput">
+            Customizar tamanho:
+          </label>
           <input
-            type="number"
-            id="passwordSize"
-            min={1}
-            value={passwordSize}
-            onChange={(ev) => setPasswordSize(ev.target.value)}
+            type="checkbox"
+            id="showInput"
+            value={showInput}
+            onChange={() => setShowInput((currentState) => !currentState)}
           />
         </div>
+        {showInput ? (
+          <div>
+            <label htmlFor="passwordSize">Tamanho: </label>
+            <Input passwordSize={customSize} setPasswordSize={setCustomSize} />
+          </div>
+        ) : null}
+
         <button onClick={generate}>
           Gerar senha com {passwordSize} caractere(s)!
         </button>
