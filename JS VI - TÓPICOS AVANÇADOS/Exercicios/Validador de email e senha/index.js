@@ -11,7 +11,7 @@ function validatePassword(password) {
     password.length < 8 ||
     !password.match(/[a-z]/) ||
     !password.match(/[A-Z]/) ||
-    !password.match(/[0-9]/) ||
+    !password.match(/\d/) ||
     !password.match(/[^a-zA-Z0-9\s]/)
   ) {
     const err = new Error("Senha inválida.");
