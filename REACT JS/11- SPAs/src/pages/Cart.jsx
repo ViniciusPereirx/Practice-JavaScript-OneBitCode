@@ -1,0 +1,22 @@
+import Header from "../components/Header";
+
+function Cart() {
+  return (
+    <section>
+      <Header />
+      <h2>Carrinho</h2>
+      <p>Os produtos atualmente em seu carrinho.</p>
+      <ul>
+        <li>2 un. - Memória RAM DDR4 8GB</li>
+        <li>1 un. - Processador Intel Core</li>
+        <li>1 un. - SSD Sata 240GB</li>
+        <li>1 un. - Fonte ATZ 500W</li>
+        <li>1 un. - Placa mãe Intel LGA 1700</li>
+        <li>1 un. - Gabinete</li>
+      </ul>
+      <button>Finalizar compra</button>
+    </section>
+  );
+}
+
+export default Cart;
